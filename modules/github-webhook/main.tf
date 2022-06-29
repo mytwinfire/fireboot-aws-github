@@ -10,11 +10,7 @@ resource "github_repository_webhook" "this" {
   #repository = "atlantis-test"
 
   configuration {
-
-    #url = "http://${var.webhook_url}/events"
     url = var.webhook_url
-    #url = "http://${data.kubernetes_service.atlantis.status[0].load_balancer[0].ingress[0].hostname}/events"
-
     content_type = "application/json"
     insecure_ssl = true
     secret       = var.webhook_secret
